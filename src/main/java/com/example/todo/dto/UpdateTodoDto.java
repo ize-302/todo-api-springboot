@@ -1,0 +1,20 @@
+package com.example.todo.dto;
+
+import jakarta.validation.constraints.NotBlank;
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
+public class UpdateTodoDto {
+	@NotBlank
+	private String title;
+
+	private String note;
+
+	public UpdateTodoDto(String title, String note) {
+		this.title = title;
+		this.note = note;
+	}
+
+}
