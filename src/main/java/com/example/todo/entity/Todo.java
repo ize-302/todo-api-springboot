@@ -29,4 +29,8 @@ public class Todo {
 
 	@Column(nullable = true)
 	private String note;
+
+	@Column(nullable = true)
+	private Boolean completed;
+
 }

@@ -12,9 +12,12 @@ public class TodoResponseDto {
 
 	private String note;
 
-	public TodoResponseDto(Integer id, String title, String note) {
+	private Boolean completed;
+
+	public TodoResponseDto(Integer id, String title, String note, Boolean completed) {
 		this.id = id;
 		this.title = title;
 		this.note = note;
+		this.completed = completed;
 	}
 }

@@ -12,9 +12,6 @@ public class UpdateTodoDto {
 
 	private String note;
 
-	public UpdateTodoDto(String title, String note) {
-		this.title = title;
-		this.note = note;
-	}
+	private Boolean completed;
 
 }

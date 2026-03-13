@@ -22,29 +22,29 @@ public class TodoServiceImpl implements TodoService {
 	@Override
 	@Transactional
 	public Todo createTodo(CreateTodoDto todo) {
-		Todo new_todo = new Todo(null, todo.getTitle(), todo.getNote());
+		Todo new_todo = new Todo(null, todo.getTitle(), todo.getNote(), todo.getCompleted());
 		return todoRepository.save(new_todo);
 	}
 
 	@Override
 	public List<TodoResponseDto> getTodos() {
 		List<TodoResponseDto> responses = new ArrayList<>();
-		todoRepository.findAll().forEach((todo) -> responses.add(new TodoResponseDto(todo.getId(), todo.getTitle(), todo.getNote())));
+		todoRepository.findAll().forEach((todo) -> responses.add(new TodoResponseDto(todo.getId(), todo.getTitle(), todo.getNote(), todo.getCompleted())));
 		return responses;
 	}
 
 	@Override
 	public TodoResponseDto getTodo(Integer id) {
 		Todo todo = todoRepository.findById(id).get();
-		TodoResponseDto response = new TodoResponseDto(todo.getId(), todo.getTitle(), todo.getNote());
+		TodoResponseDto response = new TodoResponseDto(todo.getId(), todo.getTitle(), todo.getNote(), todo.getCompleted());
 		return response;
 	}
 
 	@Override
 	@Transactional
 	public Todo updateTodo(Integer id, UpdateTodoDto todo) {
-		Todo found_todo = todoRepository.findById(id).get();
-		return todoRepository.save(found_todo);
+		Todo updated_todo = new Todo(null, todo.getTitle(), todo.getNote(), todo.getCompleted());
+		return todoRepository.save(updated_todo);
 	}
 
 	@Override
